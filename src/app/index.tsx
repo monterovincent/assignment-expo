@@ -45,7 +45,7 @@ export default function Index() {
 
         <Ionicons name="ellipsis-horizontal" size={20} color="#000" />
       </View>
-      {/* Main post photo. require() needs a literal, hardcoded path — you
+      {/* Main post photo. require() needs a literal, hardcoded path —
     can't build this path from a variable, that's a Metro bundler
     limitation, not a React Native one */}
       <Image
@@ -53,6 +53,15 @@ export default function Index() {
         style={styles.postImage}
         resizeMode="cover"
       />
+      {/* Icon row:heart/comment/share grouped on the left, bookmark alone on the right */}
+      <View style={styles.iconRow}>
+        <View style={styles.iconRowLeft}>
+          <Ionicons name="heart-outline" size={26} color="#000" />
+          <Ionicons name="chatbubble-outline" size={24} color="#000" />
+          <Ionicons name="paper-plane-outline" size={24} color="#000" />
+        </View>
+        <Ionicons name="bookmark-outline" size={24} color="#000" />
+      </View>
     </SafeAreaView>
   );
 }
@@ -107,5 +116,17 @@ const styles = StyleSheet.create({
   postImage: {
     width: "100%", // fill the screen edge-to-edge, like Instagram does
     height: screenWidth * (5 / 4), // manually recreates a 4:5 width:height ratio
+  },
+  iconRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between", //pushes the left group and bookmark to opposite edges
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+  },
+  iconRowLeft: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 16, //spacing between heart comment and share icons
   },
 });
