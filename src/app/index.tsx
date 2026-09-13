@@ -90,6 +90,11 @@ export default function Index() {
           and 7 others
         </Text>
       </View>
+      {/* Caption: bold username + caption text, same line, wraps naturally if long */}
+      <Text style={styles.caption}>
+        <Text style={styles.captionBold}>frenchie_fry39</Text> Fresh shot on a
+        sunny day! 🌤️
+      </Text>
     </SafeAreaView>
   );
 }
@@ -187,6 +192,15 @@ const styles = StyleSheet.create({
     color: "#000",
   },
   likesTextBold: {
+    fontWeight: "700",
+  },
+  caption: {
+    fontSize: 13,
+    paddingHorizontal: 12,
+    paddingBottom: 4,
+    lineHeight: 18, // slightly taller than fontSize — gives text room to breathe if it wraps to 2 lines
+  },
+  captionBold: {
     fontWeight: "700",
   },
 });
