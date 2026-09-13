@@ -95,6 +95,17 @@ export default function Index() {
         <Text style={styles.captionBold}>frenchie_fry39</Text> Fresh shot on a
         sunny day! 🌤️
       </Text>
+      {/* Comments section: "view all" link, 2 sample comments, timestamp */}
+      <Text style={styles.viewComments}>View all 12 comments</Text>
+
+      <Text style={styles.commentLine}>
+        <Text style={styles.commentBold}>lil_wyatt838</Text> Awesome tones
+      </Text>
+      <Text style={styles.commentLine}>
+        <Text style={styles.commentBold}>pia.in.a.pod</Text> Gorg. Love it! ❤️
+      </Text>
+
+      <Text style={styles.timestamp}>1 day ago</Text>
     </SafeAreaView>
   );
 }
@@ -202,5 +213,26 @@ const styles = StyleSheet.create({
   },
   captionBold: {
     fontWeight: "700",
+  },
+  viewComments: {
+    fontSize: 13,
+    color: "#8e8e8e", // Instagram grays out this line since it's a secondary action, not primary content
+    paddingHorizontal: 12,
+    paddingBottom: 4,
+  },
+  commentLine: {
+    fontSize: 13,
+    paddingHorizontal: 12,
+    paddingBottom: 2,
+  },
+  commentBold: {
+    fontWeight: "700",
+  },
+  timestamp: {
+    fontSize: 11,
+    color: "#8e8e8e",
+    paddingHorizontal: 12,
+    paddingTop: 4,
+    paddingBottom: 10,
   },
 });
