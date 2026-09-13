@@ -1,5 +1,14 @@
 import { Ionicons } from "@expo/vector-icons";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import {
+  Dimensions,
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+
+const screenWidth = Dimensions.get("window").width;
 
 export default function Index() {
   return (
@@ -36,6 +45,14 @@ export default function Index() {
 
         <Ionicons name="ellipsis-horizontal" size={20} color="#000" />
       </View>
+      {/* Main post photo. require() needs a literal, hardcoded path — you
+    can't build this path from a variable, that's a Metro bundler
+    limitation, not a React Native one */}
+      <Image
+        source={require("../../assets/images/post-photo.jpeg")}
+        style={styles.postImage}
+        resizeMode="cover"
+      />
     </SafeAreaView>
   );
 }
@@ -86,5 +103,9 @@ const styles = StyleSheet.create({
   viaText: {
     fontSize: 12,
     color: "#8e8e8e",
+  },
+  postImage: {
+    width: "100%", // fill the screen edge-to-edge, like Instagram does
+    height: screenWidth * (5 / 4), // manually recreates a 4:5 width:height ratio
   },
 });
