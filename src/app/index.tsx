@@ -62,6 +62,34 @@ export default function Index() {
         </View>
         <Ionicons name="bookmark-outline" size={24} color="#000" />
       </View>
+      {/* Likes line: a few overlapping small avatars + "Liked by X and N others" text */}
+      <View style={styles.likesRow}>
+        <View style={styles.avatarStack}>
+          <Ionicons
+            name="person-circle"
+            size={18}
+            color="#ccc"
+            style={styles.avatarStackItem1}
+          />
+          <Ionicons
+            name="person-circle"
+            size={18}
+            color="#bbb"
+            style={styles.avatarStackItem2}
+          />
+          <Ionicons
+            name="person-circle"
+            size={18}
+            color="#aaa"
+            style={styles.avatarStackItem3}
+          />
+        </View>
+
+        <Text style={styles.likesText}>
+          Liked by <Text style={styles.likesTextBold}>paisley.print.48</Text>{" "}
+          and 7 others
+        </Text>
+      </View>
     </SafeAreaView>
   );
 }
@@ -128,5 +156,37 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 16, //spacing between heart comment and share icons
+  },
+  likesRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 12,
+    paddingBottom: 4,
+    gap: 6, // space between the avatar stack and the "Liked by..." text
+  },
+  avatarStack: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  // Each avatar overlaps the one before it using a negative left margin —
+  // pulling each icon backward on top of the previous one. The first one
+  // has no overlap since there's nothing before it to overlap onto.
+  avatarStackItem1: {
+    zIndex: 3, // stacking order: 1st avatar drawn on top of 2nd and 3rd
+  },
+  avatarStackItem2: {
+    marginLeft: -8, // pulls this circle 8px left, onto the first one
+    zIndex: 2,
+  },
+  avatarStackItem3: {
+    marginLeft: -8,
+    zIndex: 1, // lowest — sits behind the other two
+  },
+  likesText: {
+    fontSize: 13,
+    color: "#000",
+  },
+  likesTextBold: {
+    fontWeight: "700",
   },
 });
