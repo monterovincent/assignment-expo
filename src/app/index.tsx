@@ -1,7 +1,10 @@
 import { Ionicons } from "@expo/vector-icons";
+import { useState } from "react";
 import {
+  Alert,
   Dimensions,
   Image,
+  Pressable,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -12,6 +15,13 @@ import {
 const screenWidth = Dimensions.get("window").width;
 
 export default function Index() {
+  //IsLiked starts false(outline heart , Black), set ISLiked only
+  const [isLiked, setIsLiked] = useState(false);
+  //Runs on every tap
+  function handleHeartPress() {
+    setIsLiked((prev) => !prev);
+    Alert.alert("Alert", "Alert Button pressed");
+  }
   return (
     <SafeAreaView style={styles.container}>
       {/* Nav bar: back icon | centered title stack | invisible spacer */}
@@ -51,7 +61,13 @@ export default function Index() {
         {/* Icon row: heart/comment/share grouped left, bookmark alone on the right */}
         <View style={styles.iconRow}>
           <View style={styles.iconRowLeft}>
-            <Ionicons name="heart-outline" size={26} color="#000" />
+            <Pressable onPress={handleHeartPress}>
+              <Ionicons
+                name={isLiked ? "heart" : "heart-outline"}
+                size={26}
+                color={isLiked ? "red" : "#000"}
+              />
+            </Pressable>
             <Ionicons name="chatbubble-outline" size={24} color="#000" />
             <Ionicons name="paper-plane-outline" size={24} color="#000" />
           </View>
