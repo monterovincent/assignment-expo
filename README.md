@@ -6,7 +6,7 @@ A React Native (Expo) recreation of an Instagram single-post screen, built for C
 
 The "Posts" detail view — profile header, post photo, engagement icons, likes, caption, and comments, styled to match the assignment's sample snapshot with a custom photo swapped in.
 
-![App Screenshot](assets/images/your-screenmy.jpeg)
+![App Screenshot](assets/images/screenmy.jpeg)
 
 ## Features Implemented
 
